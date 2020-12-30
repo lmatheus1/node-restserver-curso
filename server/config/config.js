@@ -17,7 +17,7 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'dev';
 //60 minutos
 //24 horas
 //30 dias
-process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 60;
+process.env.CADUCIDAD_TOKEN = 60 * 60 * 24 * 30;
 
 
 // ============================
@@ -34,8 +34,13 @@ let urlDB;
 if (process.env.NODE_ENV === 'dev') {
     urlDB = 'mongodb://localhost:27017/cafe';
 } else {
-    // urlDB = 'mongodb+srv://dbludwig:guasey@cluster0.cgqsq.mongodb.net/cafe'
-    urlDB = process.env.NODE_URI;
+    urlDB = 'mongodb+srv://dbludwig:guasey@cluster0.cgqsq.mongodb.net/cafe'
+        //urlDB = process.env.NODE_URI;
 }
 
 process.env.URLDB = urlDB;
+
+// ============================
+//              Google Client ID
+//=============================
+process.env.CLIENT_ID = process.env.CLIENT_ID || '153676889051-6od2508sum89ifgto7d6cmvp70l356vi.apps.googleusercontent.com';
