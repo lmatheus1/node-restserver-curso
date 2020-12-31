@@ -11,9 +11,8 @@ const app = express();
 app.get('/usuario', verificaToken, (req, res) => {
     let desde = req.query.desde || 0;
     desde = Number(desde);
-    let limite = req.query.limite || 5;
+    let limite = req.query.limite;
     limite = Number(limite);
-
 
     Usuario.find({ estado: true }, 'nombre email role estado google img')
         .skip(desde)
@@ -24,7 +23,7 @@ app.get('/usuario', verificaToken, (req, res) => {
                     ok: false,
                     err
                 });
-            }
+            };
 
             Usuario.count({ estado: true }, (_err, conteo) => {
                 res.json({
@@ -32,7 +31,9 @@ app.get('/usuario', verificaToken, (req, res) => {
                     usuarios,
                     cuantos: conteo
                 })
+                console.log(conteo);
             });
+
         })
 });
 
