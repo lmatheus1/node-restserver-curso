@@ -32,12 +32,14 @@ process.env.SEED = process.env.SEED || 'este-es-el-seed-desarrollo';
 
 let urlDB;
 
-if (process.env.NODE_ENV === 'dev') {
-    urlDB = 'mongodb://localhost:27017/cafe';
-} else {
-    urlDB = 'mongodb+srv://dbludwig:guasey@cluster0.cgqsq.mongodb.net/cafe'
-    urlDB = process.env.NODE_URI;
-}
+//if (process.env.NODE_ENV === 'dev') {
+//urlDB = 'mongodb://localhost:27017/cafe';
+//} else {
+urlDB = 'mongodb+srv://dbludwig:guasey@cluster0.cgqsq.mongodb.net/cafe';
+//urlDB = process.env.MONGO_URI;
+//urlDB = process.env.NODE_URI;
+//console.log(process.env.NODE_URI);
+//}
 
 process.env.URLDB = urlDB;
 

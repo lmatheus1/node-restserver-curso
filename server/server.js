@@ -21,11 +21,11 @@ app.use(require('./routes/index'));
 
 
 
-// Conectar a la base de datos
-mongoose.connect(process.env.URLDB, { useNewUrlParser: true },
+//Conectar a la base de datos
+mongoose.connect(process.env.URLDB, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true },
     (err, res) => {
         if (err) throw err;
-        console.log('Base de datos ONLINE');
+        console.log('Base de datos: ', process.env.URLDB);
     });
 
 
